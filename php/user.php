@@ -1,8 +1,8 @@
 <?php
 include "connectuser.php";
 //definition de la class user
-class User{
-    // les attribut de la classe user
+class User{ 
+   
 
 public $nom ;
 public $prenom ;
@@ -10,11 +10,9 @@ public $email ;
 public $pass;
 public $tel;
 
-// les methode de la classe user
 
 
-
-function insertUser(){
+public function insertUser(){
     $base= Connexion::getConnexion();
     $req = "INSERT INTO inscription (nom,prenom,email,tel,pass) VALUES ('".$this->nom."','".$this->prenom."','".$this->email."','".$this->tel."','".$this->pass."')";
    $nbLine= $base->exec($req);
@@ -30,17 +28,9 @@ else{
 
 public function updateUser(){
     $base= Connexion::getConnexion();
-    $req ="UPDATE inscription SET nom='".$this->nom."',prenom='".$this->prenom."',tel='".$this->tel."',pass='".$this->pass."'  WHERE  id=".$this->email."";
+    $req ="UPDATE inscription SET nom='".$this->nom."',prenom='".$this->prenom."',tel='".$this->tel."',pass='".$this->pass."',email='".$this->email."'  WHERE  email='".$this->email."'";
     $x=$base->exec($req);
      
-    if(!$x){
-            
-        echo "update  echouer";
-    }
-    else{
-     
-     echo "update avec succses";
-    }
 
           
 }
@@ -55,11 +45,22 @@ $data=$base->query($req);
    if($data->rowCount()){
 
         return $data;
-    }
-    else{
-        echo "email not found";
-    }
-}
+
+}}
+
+public function readUserName(){
+
+    $base= Connexion::getConnexion();
+    
+    $req ="SELECT nom FROM inscription where email ='".$this->email."'";
+    
+    $data=$base->query($req);
+    
+       if($data->rowCount()){
+    
+            return $data;
+    
+    }}
 
 
 public function affAll(){
@@ -74,9 +75,7 @@ public function affAll(){
     
             return $data;
         }
-        else{
-            echo "user not found";
-        }
+      
     }
     
 

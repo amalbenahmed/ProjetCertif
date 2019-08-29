@@ -68,12 +68,10 @@ include "recette.php";
 $rec= new recette();
 $rec->id=$_GET['id'];
 $base=$rec->deleteRecette();
-if ($base==true){
-    echo "Record deleted successfully";
-}
-else{
-    echo "Error deleting record: " ;
-}
+header('location:afficherallrec.php');
+
+
+
 ?>
 
 

@@ -76,7 +76,16 @@
         $re->id = $_GET['id'];
         
         $data = $re-> readrecette();
-        
+        if(!$data){
+            ?>
+    
+             <div class="alert alert-warning">
+             Aucun recette 
+         </div>
+           <?php
+       }else{
+        ?>
+              <?php
        while($rec = $data-> fetchObject()){
 
                 echo $rec->nomrec."<br>";
@@ -87,6 +96,7 @@
                 echo"<hr>";
 
 }
+       }
         ?>
     </form>
 

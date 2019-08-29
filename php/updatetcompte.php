@@ -10,19 +10,20 @@
 </head>
 
 <body>
+<?php
+    session_start();
+    ?>
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <a href="#"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
+                <a href="./profileuser.php"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-
-                    <h3 class="card-title titre">Bienvenue </h3>
+               
+                    <h4 class="card-title titre"> <?php if(isset($_SESSION['email'])){ echo"Bienvenue ".$_SESSION['email']."<br>";} ?> </h4>
                     <div class="input">
-
-
-                        <a href="conx.html"> <input type="button" name="user" value="deconexion" class="btn btn-warning"></a>
+                       <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
@@ -32,16 +33,13 @@
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/ajoutrecette.html">Ajouter recette</a>
+        <li class="nav-item active">
+                <a class="nav-link" href="../php/moncompte.php">Mon compte </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../html/modifuser.html">Modifer recette </a>
+                <a class="nav-link" href="../php/ajoutrecette.php">Ajouter recette</a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppuser.html">Supprimer recette </a>
-            </li>
+            
 
             <li class="nav-item active">
                 <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
@@ -49,7 +47,31 @@
 
         </ul>
     </nav>
+<?php
+  include "user.php";
 
+  $use = new User();
+  $use->nom=$_GET['nom'];
+  $use->prenom=$_GET['prenom'];
+  $use->email=$_GET['email'];
+  $use->tel=$_GET['telephone'];
+  $use->pass=$_GET['password'];
+  $x=$use->updateUser();
+  if(!$x ){
+    ?>
+    <div class="alert alert-success">
+      update valider
+    </div>
+    <?php
+}else{
+    ?>
+
+    <div class="alert alert-danger">
+      update echouer
+    </div>
+    <?php
+}
+?>
 </body>
 
 </html>

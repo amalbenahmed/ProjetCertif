@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <script>
     function verif() {
-
+            err=true;
         n = document.f.nom.value;
         p1 = document.f.prenom.value;
         e = document.f.email.value;
@@ -16,7 +16,7 @@
         if (n.length < 2) {
             alert("remplir le  nom ");
             n.focus;
-            return false;
+            err= false;
 
         } else {
 
@@ -24,7 +24,7 @@
                 if (isNaN(n[i]) == false) {
                     alert(' verfier le nom  ');
                     n.focus;
-                    return false;
+                    err= false;
                 }
             }
 
@@ -33,13 +33,13 @@
         if (!re.test(n)) {
             alert("le nom conntien des symbole");
             n.focus;
-            return false;
+            err= false;
         }
 
         if (p1.length < 2) {
             alert("remplir votre prenom");
             p1.focus;
-            return false;
+            err= false;
 
 
         } else {
@@ -56,13 +56,13 @@
         if (!re.test(p1)) {
             alert("le prenom conntien des symbole");
             p1.focus;
-            return false;
+            err= false;
         }
 
         if (e == "") {
             alert(' remplir votre email ');
             e.focus;
-            return false;
+            err= false;
 
         } else {
             valide1 = false;
@@ -87,25 +87,28 @@
         if (t.length < 8) {
             alert(' remplir votre  telephone ');
             t.focus;
-            return false;
+            err= false;
         }
         if (isNaN(t)) {
             alert(' verfier votre  telephone ');
             t.focus;
-            return false;
+            err= false;
         }
         if (p.length < 8) {
             alert(' verfier votre password ');
             p.focus;
-            return false;
+            err= false;
         } else if (p != c) {
             alert(' votre password incorrect ');
             c.focus;
-            return false;
-        } else {
+            err= false;
+        } 
+        if (err==false){
+            alert('verifier votre formulaire');
+        }else {
             alert("bien inscrit");
         }
-
+ return err;
 
     }
 </script>
@@ -116,7 +119,7 @@
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <a href="index.html"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
+                <a href="../html/index.html"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -171,7 +174,14 @@
                 <input type="password" class="form-control" placeholder="Password" required name="confirm" formControlName="confirm">
             </div>
         </div>
-
+        <?php 
+                        if(@$_GET['x']==true)
+                        {
+                    ?>
+                        <div class="alert-danger text-dark text-center py-3"><?php echo $_GET['x'] ?></div>                                
+                    <?php
+                        }
+                    ?>
         <input type="submit" value="Inscription" class="btn btn-success" onclick="verif() ">
 
 

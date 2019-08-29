@@ -1,4 +1,9 @@
-
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conadd.php');
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,17 +15,9 @@
     <title>Log In Admin</title>
 </head>
 
+
+
 <body>
-<?php
-include "recette.php";
-
-
-$rec = new recette();
-$rec->id = $_GET['id'];
-$xyz = $rec->readrecette();
-
-?>
-
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -28,11 +25,11 @@ $xyz = $rec->readrecette();
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title titre">Bienvenue Admin</h3>
+                    <h3 class="card-title titre"><?php if(isset($_SESSION['email'])){ echo"Bienvenue admin <br>";} ?></h3>
                     <div class="input">
 
 
-                        <a href="../html/conadd.html"> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
+                        <a <?php echo 'href="./dex.php?dex"' ?>> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
@@ -41,29 +38,14 @@ $xyz = $rec->readrecette();
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../html/profileadd.html">Admin</a>
+                <a class="nav-link" href="../php/profileadd.php">Admin</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/afficheuser.html">Afficher Users</a>
-            </li>
+       
 
             <li class="nav-item active">
-                <a class="nav-link " href="../html/suppuseradd.html">Supprimer Users</a>
+                <a class="nav-link" href="../php/recette1.php">Ajouter recette</a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/recette.html">Ajouter recette</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/modifad.html">Modifer recette </a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppadd.html">Supprimer recette </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/afficherecet.html">Afficher recette </a>
-            </li>
+         
             <li class="nav-item active">
                 <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
             </li>
@@ -72,6 +54,21 @@ $xyz = $rec->readrecette();
             </li>
         </ul>
     </nav>
+    <?php
+include "recette.php";
+
+
+$rec = new recette();
+$rec->id = $_GET['id'];
+$xyz = $rec->readrecette();
+if(!$xyz){
+    ?>
+    <div class="alert alert-warning">
+        Aucun recette 
+    </div>
+    <?php
+}else{
+    ?>
     <?php
 while($x = $xyz->fetchObject()){
 ?>
@@ -113,6 +110,7 @@ while($x = $xyz->fetchObject()){
             <button type="submit " class="btn btn-warning ">modifier recette</button>
         </form>
 <?php
+}
 }
 ?>
 </body>

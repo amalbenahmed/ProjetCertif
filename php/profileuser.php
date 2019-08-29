@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conx.php');
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,52 +16,53 @@
 </head>
 
 <body>
+    
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
-                <a href="../html/profuser.html"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
+                <a href="./profileuser.php"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title titre">Bienvenue Admin</h3>
+               
+                    <h4 class="card-title titre"> <?php if(isset($_SESSION['email'])){
+                         include "user.php";
+
+                         $u = new User();
+                         $u->email=$_SESSION['email'];
+                         $data = $u->readUserName();
+
+                         while($x=$data->fetchObject()){
+                            echo "Bienvenue ".$x->nom;
+                         }
+                         
+                        ;} ?> </h4>
                     <div class="input">
-
-
-                        <a href="conadd.html"> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
+                       <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
-
         <li class="nav-item active">
-                <a class="nav-link" href="../html/ajoutrecette.html">Ajouter recette</a>
+                <a class="nav-link" href="../php/moncompte.php">Mon compte </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../html/modifuser.html">Modifer recette </a>
+                <a class="nav-link" href="../php/ajoutrecette.php">Ajouter recette</a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppuser.html">Supprimer recette </a>
-            </li>
+            
 
             <li class="nav-item active">
                 <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
             </li>
+
         </ul>
     </nav>
-<?php
-include "recette.php";
 
-
-$rec = new recette();
-$rec->id = $_GET['id'];
-$base=$rec->deleteRecette();
-header('location:name.php');
-
-?>
 </body>
 
 </html>

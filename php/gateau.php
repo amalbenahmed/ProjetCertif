@@ -32,20 +32,44 @@ $re = new recette();
 
 
 $data = $re-> selectGateau();
-
-
-while($rec = $data->fetchObject()){
-
-echo $rec->nomrec."<br>";
-echo $rec->typerec."<br>";
-echo $rec->comp."<br>";
-echo $rec->etape."<br>";
-echo"<hr>";
-
-}
-
+if(!$data){
+    ?>
+    <div class="alert alert-warning">
+            Aucun recette de type gateau
+        </div>
+        <?php
+}else{
+    ?>
+    <table class="table table-striped"> 
+        <thead>
+            <tr>
+                <th>Nom de recette</th>
+                <th>type de recette</th>
+                <th>les composants de recette</th>
+                <th>les etapes de recett</th>
+                <th>id</th>
+           
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+while($user=$data->fetchObject()){
 ?>
+<tr>
+<tr>
+<td><?php echo $user->nomrec; ?></td>
+    <td><?php echo $user->typerec; ?></td>
+    <td><?php echo $user->comp; ?></td>
+    <td><?php echo $user->etape; ?></td>
+    <td><?php echo $user->id; ?></td>
 
+</tr>
+<?php
+} 
+}
+?>
+</tbody>
+</table>
 </body>
 
 </html>

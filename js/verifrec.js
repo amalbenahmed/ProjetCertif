@@ -7,15 +7,20 @@ function verif1() {
     if (n.length == '') {
         alert('remplir le  nom de recette');
         return false;
-    } 
-    
+    } else {
+        for (i = 0; i < n.length; i++) {
+            if (isNaN(n[i]) == false) {
+                alert(' verfier le nom  de recette ');
+                return false;
+            }
+        }
+        if (type.selectedIndex == false) {
         
-
-    
-    if (type.selectedIndex == false) {
-        alert('choisir un type');
-        return false;
+            alert('choisir un type');
+            return false;
+        }
     }
+
     if ((c == "") || (isNaN(c) == false)) {
         alert(' donner les composents ');
         return false;
@@ -24,6 +29,5 @@ function verif1() {
         alert(' donner les etape ');
         return false;
     }
-    
-
+  
 }

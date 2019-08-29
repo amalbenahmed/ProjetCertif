@@ -1,5 +1,9 @@
 <?php
 include "recette.php";
+if($_GET['type']=="Choose..."){
+    header('location: ajoutrecette.php?x=selectionner un type');
+}
+else{
 
 
 $use= new recette();
@@ -9,5 +13,5 @@ $use->comp=$_GET['compos'];
 $use->etap=$_GET['etap'];
 $use->insertRecette1();
 
-
+}
 ?>

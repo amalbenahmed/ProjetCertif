@@ -69,6 +69,8 @@ $u = new User();
 $u->email=$email;
 $u->deleteUser();
 
+header('location:afficheralluser.php')
+
 
 
 

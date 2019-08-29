@@ -10,6 +10,9 @@
 </head>
 
 <body>
+<?php
+session_start();
+?>
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -17,12 +20,10 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title titre">Bienvenue Admin</h3>
+                <h4 class="card-title titre"> <?php if(isset($_SESSION['email'])){ echo"Bienvenue ".$_SESSION['email']."<br>";} ?> </h4>
                     <div class="input">
-
-
-                        <a href="conadd.html"> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
-                    </div>
+                       <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
+                </div></div>
                 </div>
             </div>
         </div>
@@ -33,13 +34,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="../html/ajoutrecette">Ajouter recette</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/modifuser.html">Modifer recette </a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppuser.html">Supprimer recette </a>
-            </li>
+            
             <li class="nav-item active">
                 <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
             </li>
@@ -61,7 +56,19 @@ $rec->comp=$_GET['comp'];
 $rec->etap=$_GET['etap'];
 
 $x = $rec->updateRecette();
-
+if($x == true ){
+    ?>
+    <div class="alert alert-danger">
+      update echouer
+    </div>
+    <?php
+}else{
+    ?>
+<div class="alert alert-success">
+      update valider
+    </div>
+    <?php
+}
 ?>
 
 </body>

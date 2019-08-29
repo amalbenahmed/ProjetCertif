@@ -35,27 +35,11 @@
             <li class="nav-item active">
                 <a class="nav-link" href="../html/profileadd.html">Admin</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/afficheuser.html">Afficher Users</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/modifuseradmin.html">Modifer Users</a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link " href="../html/suppuseradd.html">Supprimer Users</a>
-            </li>
+           
 
             <li class="nav-item active">
                 <a class="nav-link" href="../html/recette.html">Ajouter recette</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/modifad.html">Modifer recette </a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppadd.html">Supprimer recette </a>
-            </li>
+        
             <li class="nav-item active">
                 <a class="nav-link" href="../html/afficherecet.html">Afficher recette </a>
             </li>
@@ -64,7 +48,7 @@
             </li>
         </ul>
     </nav>
-<<?php
+<?php
 include "recette.php";
 
 
@@ -77,6 +61,19 @@ $rec->etap=$_GET['etap'];
 
 $x = $rec->updateRecette();
 
+if($x == true){
+    ?>
+    <div class="alert alert-danger">
+      update echouer
+    </div>
+    <?php
+}else{
+    ?>
+<div class="alert alert-success">
+      update valider
+    </div>
+    <?php
+}
 ?>
 
 </body>

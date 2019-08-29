@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conadd.php');
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +16,7 @@
 </head>
 
 <body>
+
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -17,46 +24,40 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-
-                    <h3 class="card-title titre">Bienvenue </h3>
+                    <h3 class="card-title titre"><?php if(isset($_SESSION['email'])){ echo"Bienvenue admin <br>";} ?></h3>
                     <div class="input">
 
 
-                        <a href="conx.html"> <input type="button" name="user" value="deconexion" class="btn btn-warning"></a>
+                        <a <?php echo 'href="./dex.php?dex"' ?>> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../html/ajoutrecette.html">Ajouter recette</a>
+                <a class="nav-link" href="../php/profileadd.php">Admin</a>
+            </li>
+         
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="../php/recette1.php">Ajouter recette</a>
+            </li>
+          
+            
+            <li class="nav-item active">
+                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="../html/modifuser.html">Modifer recette </a>
+                <a class="nav-link" href="../php/afficheralluser.php">Afficher tout users </a>
             </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="../html/suppuser.html">Supprimer recette </a>
-            </li>
-             <li class="nav-item active">
-                <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
-            </li>
-
-
         </ul>
     </nav>
-    <form method="GET" action="../php/modifrecuser.php">
-        <div class="form-group col-md-2">
-            <label for="inputZip">id</label>
-            <input type="text" class="form-control" id="inputZip" name="id">
-        </div>
 
-        <button type="submit " class="btn btn-warning ">Modifer recette</button>
-    </form>
+
+
+
 
 </body>
 

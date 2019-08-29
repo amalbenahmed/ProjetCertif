@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conadd.php');
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +13,39 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <title>Log In Admin</title>
-    <script src="../js/verifrec.js"></script>
+    <script> function verif1() {
+    n = document.f.nom.value;
+    type = document.f.type.value;
+    c = document.f.compos.value;
+    etp = document.f.etap.value;
+
+    if (n.length == '') {
+        alert('remplir le  nom de recette');
+        return false;
+    } else {
+        for (i = 0; i < n.length; i++) {
+            if (isNaN(n[i]) == false) {
+                alert(' verfier le nom  de recette ');
+                return false;
+            }
+        }
+        if (type.selectedIndex == false) {
+        
+            alert('choisir un type');
+            return false;
+        }
+    }
+
+    if ((c == "") || (isNaN(c) == false)) {
+        alert(' donner les composents ');
+        return false;
+    }
+    if ((etp == "") || (isNaN(etp) == false)) {
+        alert(' donner les etape ');
+        return false;
+    }
+  
+}</script>
 </head>
 
 <body>
@@ -23,52 +61,38 @@
     </head>
 
     <body>
-        <div class="card mb-3 bg-danger" style="max-width: 100%;">
-            <div class="row no-gutters">
-                <div class="col-md-4">
-                    <a href="#"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h3 class="card-title titre">Bienvenue Admin</h3>
-                        <div class="input">
-                        
+   
+    <div class="card mb-3 bg-danger" style="max-width: 100%;">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <a href="#"> <img src="../img/logo.png" class="card-img s" alt="..."></a>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title titre"><?php if(isset($_SESSION['email'])){ echo"Bienvenue admin <br>";} ?></h3>
+                    <div class="input">
 
-                            <a href="conadd.html"> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
-                        </div>
+
+                        <a <?php echo 'href="./dex.php?dex"' ?>> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../html/profileadd.html">Admin</a>
+                    <a class="nav-link" href="../php/profileadd.php">Admin</a>
                 </li>
+              
+               
                 <li class="nav-item active">
-                    <a class="nav-link" href="../html/afficheuser.html">Afficher Users</a>
+                    <a class="nav-link" href="../php/recette1.php">Ajouter recette</a>
                 </li>
+               
 
-
-                <li class="nav-item active">
-                    <a class="nav-link " href="../html/suppuseradd.html">Supprimer Users</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="../html/recette.html">Ajouter recette</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="../html/modifad.html">Modifer recette </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="../html/suppadd.html">Supprimer recette </a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="../html/afficherecet.html">Afficher recette </a>
-                </li>
+               
                 <li class="nav-item active">
                 <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
             </li>
@@ -84,12 +108,12 @@
             <div class="form-row ">
                 <div class="form-group col-md-6 ">
                     <label for="inputEmail4 ">Nom de recette</label>
-                    <input type="text " class="form-control " id="inputEmail4 " placeholder="Nom de recette " name="nom"required>
+                    <input type="text " class="form-control " id="inputEmail4 " placeholder="Nom de recette " name="nom" required>
                 </div>
 
                 <div class="form-group col-md-4 ">
                     <label for="inputState ">Type de recette</label>
-                    <select id="inputState " class="form-control " name="type" required>
+                    <select id="inputState " class="form-control " name="type" required >
                         <option selected>Choose...</option>
                         <option value="jus ">Jus</option>
                         <option value="gateau ">Gateau</option>
@@ -110,8 +134,16 @@
                 <label for="exampleFormControlTextarea5 ">Les etapes de preparation</label>
                 <textarea class="form-control " id="exampleFormControlTextarea5 " rows="3 " name="etap"required></textarea>
             </div>
+            <?php 
+                        if(@$_GET['x']==true)
+                        {
+                    ?>
+                        <div class="alert-danger text-dark text-center py-3"><?php echo $_GET['x'] ?></div>                                
+                    <?php
+                        }
+                    ?>
             <button type="submit " class="btn btn-primary " onclick="verif1()">Ajout recette</button>
-
+            <p id="error"></p>
         </form>
     </body>
 
