@@ -5,12 +5,12 @@ function verif1() {
     etp = document.f.etap.value;
 
     if (n.length == '') {
-        alert('remplir le  nom de recette');
+        alert('remplir le  nom de la recette');
         return false;
     } else {
         for (i = 0; i < n.length; i++) {
             if (isNaN(n[i]) == false) {
-                alert(' verfier le nom  de recette ');
+                alert(' verfier le nom  de la recette ');
                 return false;
             }
         }
@@ -22,11 +22,11 @@ function verif1() {
     }
 
     if ((c == "") || (isNaN(c) == false)) {
-        alert(' donner les composents ');
+        alert(' donner les composants ');
         return false;
     }
     if ((etp == "") || (isNaN(etp) == false)) {
-        alert(' donner les etape ');
+        alert(' donner les etapes ');
         return false;
     }
   

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>inscrit</title>
 <link rel="stylesheet" href="../css/style.css">
 <script>
@@ -13,7 +14,7 @@
         p = document.f.password.value;
         c = document.f.confirm.value;
 
-        if (n.length < 2) {
+        if (n.length < 2 || n.length > 25) {
             alert("remplir le  nom ");
             n.focus;
             return false;
@@ -31,7 +32,7 @@
         }
         re = /^\w+$/;
         if (!re.test(n)) {
-            alert("le nom conntien des symbole");
+            alert("le nom contient des symboles");
             n.focus;
             return false;
         }
@@ -54,7 +55,7 @@
         }
         re = /^\w+$/;
         if (!re.test(p1)) {
-            alert("le prenom conntien des symbole");
+            alert("le prenom contient des symbole");
             p1.focus;
             return false;
         }
@@ -84,22 +85,23 @@
 
         }
 
-        if (t.length < 8) {
-            alert(' remplir votre  telephone ');
+        if (t.length =! 8) {
+            alert(' remplir votre  numero de telephone ');
             t.focus;
             return false;
         }
         if (isNaN(t)) {
-            alert(' verfier votre  telephone ');
+            alert(' verfier votre  numero de telephone ');
             t.focus;
             return false;
         }
-        if (p.length < 8) {
-            alert(' verfier votre password ');
+        if (p.length < 10) {
+            alert(' verfier votre mot de passe ');
             p.focus;
             return false;
+
         } else if (p != c) {
-            alert(' votre password incorrect ');
+            alert(' votre mot de passe est incorrect ');
             c.focus;
             return false;
         } else {
@@ -122,8 +124,10 @@
                 <div class="card-body">
                     <h3 class="card-title titre">Recettes de patisserie</h3>
                     <div class="input">
-                        <a href="../php/conadd.php"> <input type="button" name="admin" value="Admin" class="btn btn-warning"></a>
-                        <a href="../php/conx.php"><input type="button" name="conex" value="Connexion" class="btn btn-primary"></a>
+                        <a href="../php/conadd.php"> <input type="button" name="admin" value="Admin"
+                                class="btn btn-warning"></a>
+                        <a href="../php/conx.php"><input type="button" name="conex" value="Connexion"
+                                class="btn btn-primary"></a>
 
                     </div>
                 </div>
@@ -135,12 +139,14 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <p>Nom</p>
-                <input type="text" class="form-control mt-3" placeholder="Nom" required formControlName="nom" name="nom">
+                <input type="text" class="form-control mt-3" placeholder="Nom" required formControlName="nom"
+                    name="nom">
 
             </div>
             <div class="form-group col-md-6">
                 <p>Prénom</p>
-                <input type="text" class="form-control" placeholder="Prénom" required formControlName="prenom" name="prenom">
+                <input type="text" class="form-control" placeholder="Prénom" required formControlName="prenom"
+                    name="prenom">
 
             </div>
         </div>
@@ -148,11 +154,13 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <p>Email</p>
-                <input type="email" class="form-control" placeholder="Email" required formControlName="email" name="email">
+                <input type="email" class="form-control" placeholder="Email" required formControlName="email"
+                    name="email">
             </div>
             <div class="form-group col-md-6">
                 <p> Téléphone</p>
-                <input type="tel" class="form-control" placeholder="Téléphone" required formControlName="telephone" name="telephone">
+                <input type="tel" class="form-control" placeholder="Téléphone" required formControlName="telephone"
+                    name="telephone">
 
             </div>
         </div>
@@ -168,7 +176,8 @@
 
             <div class="form-group col-md-6">
                 <label>Confirmer Mot de Passe</label>
-                <input type="password" class="form-control" placeholder="Password" required name="confirm" formControlName="confirm">
+                <input type="password" class="form-control" placeholder="Password" required name="confirm"
+                    formControlName="confirm">
             </div>
         </div>
 

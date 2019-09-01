@@ -1,9 +1,4 @@
-<?php
-    session_start();
-    if($_SESSION['email'] == NULL){
-header('location: conx.php');
-    }
-    ?>
+
 <!DOCTYPE html>
 <html>
 
