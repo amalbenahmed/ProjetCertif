@@ -31,7 +31,7 @@
                          }
                          
                         ;} ?> </h4>                    <div class="input">
-                       <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
+                       <a> <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
                 </div>
             </div>
         </div>
