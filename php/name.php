@@ -1,4 +1,8 @@
-
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conx.php');
+    }?>
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +35,7 @@
                          }
                          
                         ;} ?> </h4>                    <div class="input">
-                       <a> <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
+                       <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
                 </div>
             </div>
         </div>

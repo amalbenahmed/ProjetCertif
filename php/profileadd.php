@@ -1,4 +1,9 @@
-
+<?php
+    session_start();
+    if($_SESSION['email'] == NULL){
+header('location: conadd.php');
+    }
+    ?>
 <!DOCTYPE html>
 <html>
 

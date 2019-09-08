@@ -26,7 +26,7 @@ function verif1() {
         return false;
     }
     if ((etp == "") || (isNaN(etp) == false)) {
-        alert(' donner les etapes ');
+        alert(' donner les etape ');
         return false;
     }
   

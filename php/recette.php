@@ -1,12 +1,18 @@
 <?php
+
 include "connectrecette.php";
 
+
 class recette{
+
+
 public $nom;
 public $type;
 public $comp;
 public $etap;
 public $id;
+
+
 
 function insertRecette(){
     $base= Connexionrec::getConnexion();
