@@ -41,7 +41,7 @@
             </li>
          
             <li class="nav-item active">
-                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
+                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recettes </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="../php/afficheralluser.php">Afficher tout users </a>
@@ -93,7 +93,7 @@ while($x = $xyz->fetchObject()){
 
             </div>
            <div class="form-group purple-border">
-  <label for="exampleFormControlTextarea4">Les composents</label>
+  <label for="exampleFormControlTextarea4">Les composants</label>
   <textarea class="form-control" name="comp" id="exampleFormControlTextarea4" rows="3" value="<?php echo $x->comp; ?>"></textarea>
 </div>
 

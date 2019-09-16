@@ -46,7 +46,7 @@ if(!$data){
                 <th>Nom de recette</th>
                 <th>type de recette</th>
                 <th>les composants de recette</th>
-                <th>les etapes de recett</th>
+                <th>les etapes de recette</th>
                 <th>id</th>
            
             </tr>

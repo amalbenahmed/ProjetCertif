@@ -99,7 +99,7 @@ header('location: conadd.php');
 
                
                 <li class="nav-item active">
-                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
+                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recettes </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="../php/afficheralluser.php">Afficher tout users </a>
@@ -147,7 +147,7 @@ header('location: conadd.php');
                     <?php
                         }
                     ?>
-            <button type="submit " class="btn btn-primary " onclick="verif1()">Ajout recette</button>
+            <button type="submit " class="btn btn-primary " onclick="verif1()">Ajouter recette</button>
             <p id="error"></p>
         </form>
     </body>

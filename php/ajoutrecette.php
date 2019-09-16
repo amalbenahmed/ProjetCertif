@@ -83,7 +83,7 @@
             </li>
            
             <li class="nav-item active">
-                <a class="nav-link" href="../php/name.php">Afficher les recette </a>
+                <a class="nav-link" href="../php/name.php">Afficher les recettes </a>
             </li>
 
 
@@ -113,7 +113,7 @@
 
         </div>
         <div class="form-group purple-border ">
-            <label for="exampleFormControlTextarea4 ">Les composents</label>
+            <label for="exampleFormControlTextarea4 ">Les composants</label>
             <textarea class="form-control " id="exampleFormControlTextarea4 " rows="3 " name="compos" required></textarea>
         </div>
 
@@ -129,7 +129,7 @@
                     <?php
                         }
                     ?>
-        <button type="submit " class="btn btn-primary " onclick="verif1()">Ajout recette</button>
+        <button type="submit " class="btn btn-primary " onclick="verif1()">Ajouter recette</button>
     </form>
 
 </html>

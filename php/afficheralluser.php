@@ -41,7 +41,7 @@
             </li>
         
             <li class="nav-item active">
-                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recette </a>
+                <a class="nav-link" href="../php/afficherallrec.php">Afficher tout recettes </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="../php/afficheralluser.php">Afficher tout users </a>
