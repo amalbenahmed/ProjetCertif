@@ -11,7 +11,15 @@
 </head>
 
 <body>
-   
+<?php
+include "user.php";
+
+
+$rec = new User();
+$rec->id = $_GET['id'];
+$xyz = $rec->readUser();
+
+?>
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
         <div class="row no-gutters">
             <div class="col-md-4">
@@ -52,21 +60,16 @@
             
 
             <li class="nav-item active">
-                <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
+                <a class="nav-link" href="../php/name.php">Afficher  les recettes </a>
             </li>
             
 
         </ul>
     </nav>
-    <form name="f" action="../php/updatetcompte.php" method="GET">
-    <?php
-   
-        $re = new User();
-        $re->email=$_SESSION['email'];
 
-        $data = $re->readUser();
-        if($user=$data->fetchObject()){
-            ?>
+    
+    <form name="f" method="GET" action="../php/updatetcompte.php">
+    
         <div class="form-row">
             <div class="form-group col-md-6">
                 <p>Nom</p>
@@ -92,9 +95,6 @@
             </div>
         </div>
 
-
-
-
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Mot de Passe</label>
@@ -105,12 +105,11 @@
             <label>Confirmer Mot de Passe</label>
             <input type="password" class="form-control" placeholder="Password" required name="confirm" formControlName="confirm">
               </div>
-
-              <?php 
-        }?>
+    
      </div>
-     <input type="submit" value="modifier" class="btn btn-success" onclick="verif() ">
+<input type="submit" value="modifier" class="btn btn-success" >
 </form>
+
 </body>
 
 </html>

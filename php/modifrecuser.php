@@ -16,7 +16,7 @@
 include "recette.php";
 
 
-$rec = new recette();
+$rec = new Recette();
 $rec->id = $_GET['id'];
 $xyz = $rec->readrecette();
 
@@ -60,7 +60,7 @@ $xyz = $rec->readrecette();
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
+                <a class="nav-link" href="../php/name.php">Afficher  les recettes </a>
             </li>
         </ul>
     </nav>
@@ -98,7 +98,7 @@ if($x = $xyz->fetchObject()){
 
             </div>
            <div class="form-group purple-border">
-  <label for="exampleFormControlTextarea4">Les composents</label>
+  <label for="exampleFormControlTextarea4">Les composants</label>
   <textarea class="form-control" name="comp" id="exampleFormControlTextarea4" rows="3" value="<?php echo $x->comp; ?>"></textarea>
 </div>
 

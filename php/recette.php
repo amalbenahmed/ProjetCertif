@@ -3,7 +3,7 @@
 include "connectrecette.php";
 
 
-class recette{
+class Recette{
 
 
 public $nom;

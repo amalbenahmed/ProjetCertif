@@ -31,7 +31,7 @@
         }
         re = /^\w+$/;
         if (!re.test(n)) {
-            alert("le nom conntien des symbole");
+            alert("le nom contient des symboles");
             n.focus;
             err= false;
         }
@@ -45,7 +45,7 @@
         } else {
             for (j = 0; j < n.length; j++) {
                 if (isNaN(p1) == false) {
-                    alert("verfier votre prenom");
+                    alert("verifier votre prenom");
                     p1.focus;
                     return false;
                 }
@@ -54,7 +54,7 @@
         }
         re = /^\w+$/;
         if (!re.test(p1)) {
-            alert("le prenom conntien des symbole");
+            alert("le prenom contient des symboles");
             p1.focus;
             err= false;
         }

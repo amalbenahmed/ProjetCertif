@@ -56,7 +56,7 @@ header('location: conx.php');
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="../php/name.php">Afficher  les recette </a>
+                <a class="nav-link" href="../php/name.php">Afficher  les recettes </a>
             </li>
 
         </ul>

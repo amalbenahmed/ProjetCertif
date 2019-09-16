@@ -17,7 +17,7 @@ public function insertUser(){
     $nbLine= $base->exec($req);
    if($nbLine==1){
     echo "insertion avec succses";
-    header('Location: http://localhost/projetCertif/html/conx.html');
+    header('Location: http://localhost/bootcamp/projetCertif/html/conx.html');
 }
 else{
  echo "insertion  echouer";
