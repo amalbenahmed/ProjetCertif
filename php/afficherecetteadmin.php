@@ -6,11 +6,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-
     <title>Log In Admin</title>
 </head>
-
-
 
 <body>
     <div class="card mb-3 bg-danger" style="max-width: 100%;">
@@ -20,10 +17,12 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title titre"><?php if(isset($_SESSION['email'])){ echo"Bienvenue admin <br>";} ?></h3>
+                    <h3 class="card-title titre">
+                        <?php
+                         if(isset($_SESSION['email'])){ echo"Bienvenue admin <br>";} 
+                        ?>
+                    </h3>
                     <div class="input">
-
-
                         <a <?php echo 'href="./dex.php?dex"' ?>> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
@@ -73,7 +72,7 @@ while($x = $xyz->fetchObject()){
                     <label for="inputEmail4">Nom de recette</label>
                     <input type="text" class="form-control" name="nom" id="inputEmail4" placeholder="Nom de recette" value="<?php echo $x->nomrec; ?>">
                 </div>
-                <div class="form-group col-md-2">
+             <div class="form-group col-md-2">
       <label for="inputZip">id</label>
       <input type="text" name="id" class="form-control" id="inputZip" value="<?php echo $x->id; ?>" readonly>
     </div>

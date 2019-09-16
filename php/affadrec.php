@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +6,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-
     <title>Log In Admin</title>
 </head>
 
@@ -21,16 +19,12 @@
                 <div class="card-body">
                     <h3 class="card-title titre">Bienvenue Admin</h3>
                     <div class="input">
-
-
                         <a href="../html/conadd.html"> <input type="button" name="admin" value="deconexion" class="btn btn-warning"></a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 
     <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
@@ -40,19 +34,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="../html/afficheuser.html">Afficher Users</a>
             </li>
-
-
             <li class="nav-item active">
                 <a class="nav-link " href="../html/suppuseradd.html">Supprimer Users</a>
             </li>
-
             <li class="nav-item active">
                 <a class="nav-link" href="../html/recette.html">Ajouter recette</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="../html/modifad.html">Modifer recette </a>
             </li>
-
             <li class="nav-item active">
                 <a class="nav-link" href="../html/suppadd.html">Supprimer recette </a>
             </li>

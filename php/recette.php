@@ -30,7 +30,7 @@ function insertRecette1(){
    $nbLine= $base->exec($req);
    if($nbLine==1){
     echo "insertion avec succses";
-    header('Location: http://localhost/projet/php/profileuser.php');
+    header('Location: http://localhost/bootcamp/projetCertif/php/profileuser.php');
 }
 else{
  echo "insertion  echouer";

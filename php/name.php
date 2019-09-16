@@ -10,7 +10,6 @@ header('location: conx.php');
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
-
     <title>Log In Admin</title>
 </head>
 
@@ -24,7 +23,9 @@ header('location: conx.php');
             <div class="col-md-8">
                 <div class="card-body">
 
-                <h4 class="card-title titre"> <?php if(isset($_SESSION['email'])){
+                <h4 class="card-title titre"> 
+                    <?php 
+                       if(isset($_SESSION['email'])){
                          include "user.php";
                          $u = new User();
                          $u->email=$_SESSION['email'];
@@ -32,9 +33,11 @@ header('location: conx.php');
 
                          while($x=$data->fetchObject()){
                             echo "Bienvenue ".$x->nom;
-                         }
-                         
-                        ;} ?> </h4>                    <div class="input">
+                        }
+                        } 
+                    ?>
+                 </h4>                    
+                 <div class="input">
                        <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a></div>
                 </div>
             </div>

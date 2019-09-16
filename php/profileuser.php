@@ -25,7 +25,8 @@ header('location: conx.php');
             <div class="col-md-8">
                 <div class="card-body">
                
-                    <h4 class="card-title titre"> <?php if(isset($_SESSION['email'])){
+                    <h4 class="card-title titre"> 
+                        <?php if(isset($_SESSION['email'])){
                          include "user.php";
 
                          $u = new User();
@@ -35,8 +36,9 @@ header('location: conx.php');
                          while($x=$data->fetchObject()){
                             echo "Bienvenue ".$x->nom;
                          }
-                         
-                        ;} ?> </h4>
+                        } 
+                        ?> 
+                    </h4>
                     <div class="input">
                        <a <?php echo 'href="./dex.php?dex"' ?> > <input type="button" name="user" value="deconexion" class="btn btn-warning"></a>
                     </div>

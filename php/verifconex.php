@@ -17,7 +17,7 @@ if(isset($_GET['sign'])){
 
     if(empty($_GET['email'])||empty($_GET['pass'])){
 
-    header('location: http://localhost/projet/php/conx.php? Empty= remplir vos champs ') ; }    
+    header('location: http://localhost/bootcamp/projetCertif/php/conx.php? Empty= remplir vos champs ') ; }    
           
             else
             {
@@ -28,7 +28,7 @@ if(isset($_GET['sign'])){
                  if(mysqli_fetch_assoc($result))
                  {
                     $_SESSION['email']=$_GET['email'];
-                    header('location: http://localhost/projet/php/profileuser.php');
+                    header('location: http://localhost/bootcamp/projetCertif/php/profileuser.php');
                   
                  }
                  else

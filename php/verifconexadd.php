@@ -14,8 +14,8 @@ if(isset($_GET['sign'])){
 
     if(empty($_GET['email'])||empty($_GET['pass'])){
 
-    header('location: http://localhost/projet/php/conadd.php? Empty= remplir vos champs ') ; }    
-          
+    header('location: http://localhost/bootcamp/projetCertif/php/conadd.php? Empty= remplir vos champs ') ; 
+     }    
             else
             {
                  $query="SELECT email,pass FROM adm";
@@ -25,7 +25,7 @@ if(isset($_GET['sign'])){
                  {
                     $_SESSION['email']=$_GET['email'];
                     $_SESSION['pass']=$_GET['pass'];
-                    header('location: http://localhost/projet/php/profileadd.php');
+                    header('location: http://localhost/bootcamp/projetCertif/php/profileadd.php');
                   
                  }
                  else
